@@ -1,0 +1,54 @@
+<p-fieldset
+    *ngIf="POIRunInfo"
+    legend="Сборка: {{ pointInfo.version }} 
+            Дата прогона: {{ convertDate(POIRunInfo.date) }}">
+    <div class="container">
+        <div class="row border border-1">
+            <div class="col-2">Время теста:</div>
+            <div class="col">{{ POIRunInfo.buildDuration }}</div>
+        </div>
+        <div class="row border border-1">
+            <div class="col-2">Эталон:</div>
+            <div class="col">
+                {{ POIRunInfo.etalonDuration }}
+            </div>
+        </div>
+        <div class="row border border-1">
+            <div class="col-2">Допуск:</div>
+            <div class="col">{{ POIRunInfo.tolerance }}</div>
+        </div>
+        <br />
+        <div class="row border border-1">
+            <div class="col-2">Ветка:</div>
+            <div class="col">{{ POIRunInfo.branch }}</div>
+        </div>
+        <div class="row border border-1">
+            <div class="col-2">Cообщ. коммита:</div>
+            <div class="col">{{ POIRunInfo.commitMessage }}</div>
+        </div>
+        <div class="row border border-1">
+            <div class="col-2">Машина:</div>
+            <div class="col">{{ POIRunInfo.PCName }}</div>
+        </div>
+        <div class="row border border-1">
+            <div class="col-2">Рендер:</div>
+            <div class="col">{{ POIRunInfo.renderOption }}</div>
+        </div>
+        <div class="row border border-1">
+            <div class="col-2">Хар-ки ПК:</div>
+            <div class="col">{{ POIRunInfo.hardware }}</div>
+        </div>
+        <br />
+        <p-button (click)="downloadReport()" label="Скачать отчет"></p-button>
+        <br />
+        <br />
+        <div class="row">
+            <strong>Сценарий теста:</strong>
+        </div>
+        <div class="row">
+            <span>{{ POIRunInfo.testCase }} {{ POIRunInfo.testCaseName }}</span>
+            <br />
+            <span style="white-space: pre-line">{{ POIRunInfo.comment }}</span>
+        </div>
+    </div>
+</p-fieldset>
